@@ -1,0 +1,9 @@
+test.py
+myenv
+shop/__pycache__
+store.db
+store.db-journal
+__pycache__
+ignoredfiles
+getc.py
+.env

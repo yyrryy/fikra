@@ -2,7 +2,6 @@ from flask import Flask, request, render_template, make_response
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 import os
-from urllib.parse import urlparse
 
 
 app = Flask(__name__)
@@ -10,7 +9,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config.from_prefixed_env()
 
-
+print(app.config['SECRET_KEY'])
 
 db = SQLAlchemy(app)
 bcrypt  = Bcrypt(app)
