@@ -4,25 +4,25 @@ from flask import (
     redirect,
     url_for
 )
+from sqlalchemy import false
 from fikra import db, bcrypt
-from models import Users
+from fikra.models import Users
 
 from functools import wraps
 
 from random import choice
 
 # generate unique code for referal code using bcrypt 11 length
-def generate_code():
+def generatecode():
     characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'
     code = ''
     for i in range(0, 11):
         code += choice(characters)
     # check if code exists inn db
     if Users.query.filter_by(referalcode=code).first():
-        generate_code()
+        generatecode()
     return code
 
-print(generate_code())
 
 # user login function
 def user_login(views):
@@ -35,19 +35,19 @@ def user_login(views):
     return wrapper
 
 
-def chackusername(u):
+def checkusername(u):
     # check if username exists in db
     user = Users.query.filter_by(username=u).first()
     if user:
-        return True
-    return False
+        return False
+    return True
 
 # check if email exists in db
 def checkemail(e):
     user = Users.query.filter_by(email=e).first()
     if user:
-        return True
-    return False
+        return False
+    return True
 
 # signup function
 def signup_user(fullname, username, email, password, who_refered):
