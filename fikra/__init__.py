@@ -7,8 +7,8 @@ import os
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config.from_prefixed_env()
-
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['abdelouaheddb']
+app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
 print(app.config['SECRET_KEY'])
 
 db = SQLAlchemy(app)

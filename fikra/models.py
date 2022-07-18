@@ -6,7 +6,16 @@ class Users(db.models):
     username= db.Column(db.String(500))
     email = db.Column(db.String(500))
     password = db.Column(db.String(500))
+    # project colum is a string flield length is 500
+    project = db.Column(db.String(500))
+    rib = db.Column(db.String(500))
+    referalcode= db.Column(db.String(500))
+    # referred by column will be one to many relationship witl users table
+    referedby = db.Column(db.Integer, db.ForeignKey('users.id'))
+    # referredby = db.relationship('Users', backref=db.backref('referedby', lazy='dynamic'))
     
+
+
 # staff model
 class Staff(db.models):
     id = db.Column(db.Integer, primary_key=True)

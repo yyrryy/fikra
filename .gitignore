@@ -1,5 +1,6 @@
 test.py
 myenv
+fenv
 shop/__pycache__
 store.db
 store.db-journal
