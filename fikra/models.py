@@ -11,7 +11,7 @@ class Users(db.Model):
     rib = db.Column(db.String(500))
     referalcode= db.Column(db.String(500))
     # referred by column will be one to many relationship witl users table
-    referedby = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+    referedby = db.Column(db.Integer, nullable=True)
     # referredby = db.relationship('Users', backref=db.backref('referedby', lazy='dynamic'))
     
 

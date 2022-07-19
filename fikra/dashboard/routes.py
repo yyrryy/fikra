@@ -38,9 +38,9 @@ def signup(refcode):
         code = ''
         for i in range(0, 11):
             code += choice(characters)
-        db.session.add(Users(fullname=fullname, username=username, email=email, password=password, referedby=who_refered, project=project, rib=rib, referalcode=code))
+        db.session.add(Users(fullname=fullname, username=username, email=email, password=password, referedby=who_refered.id, project=project, rib=rib, referalcode=code))
         db.session.commit()
-        print('referedby', who_refered)
+        print('referedby', who_refered.id)
         print('user added')
         return redirect(url_for('dashboard.verification'))
     return render_template('dashboard/getin.html', refcode=refcode)
