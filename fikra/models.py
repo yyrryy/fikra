@@ -13,7 +13,9 @@ class Users(db.Model):
     # referred by column will be one to many relationship witl users table
     referedby = db.Column(db.Integer, nullable=True)
     # referredby = db.relationship('Users', backref=db.backref('referedby', lazy='dynamic'))
-    
+    # is verified column will be boolean field
+    # isverified = db.Column(db.Boolean, default=False)
+
 
 
 # staff model

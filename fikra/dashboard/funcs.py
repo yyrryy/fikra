@@ -28,10 +28,10 @@ def generatecode():
 def user_login(views):
     @wraps(views)
     def wrapper(*args, **kwargs):
-        if session['username'] is not None:
+        if session.get('username') is not None:
             return views(*args, **kwargs)
         else:
-            return redirect('/getin')
+            return redirect(url_for('dashboard.getin'))
     return wrapper
 
 

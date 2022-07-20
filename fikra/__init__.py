@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template, make_response
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+# urlparse is a standard Python module that parses URLs.
+from urllib.parse import urlparse
 import os
 
 
