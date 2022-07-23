@@ -75,6 +75,18 @@ def verification():
         return redirect(url_for('dashboard.home'))
     return render_template('dashboard/verification.html')
 
+
+@dashboard.route('/investment')
+def investment():
+    userid=session['userid']
+    user = Users.query.filter_by(id=userid).first()
+    return render_template('dashboard/investment.html', user=user)
+
+
+
+
+
+
 # logout route
 @dashboard.route('/logout')
 def logout():
