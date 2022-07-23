@@ -19,9 +19,13 @@ dashboard = Blueprint('dashboard', __name__, url_prefix='/dashboard')
 @user_login
 def home():
     userid=session['userid']
+
     user = Users.query.filter_by(id=userid).first()
-    referals=Users.query.filter_by(referedby=userid).all()
-    return render_template('dashboard/home.html', user=user, referals=referals)
+    # check if user is verified
+    if user.isverified == True:
+        referals=Users.query.filter_by(referedby=userid).all()
+        return render_template('dashboard/home.html', user=user, referrals=referals)
+    return redirect(url_for('dashboard.verification'))
 
 @dashboard.route('/newuser')
 def newuser():
@@ -57,8 +61,7 @@ def getin():
             session.clear()
             session['username'] = user.username
             session['userid'] = user.id
-            users_refered=Users.query.filter_by(referedby=user.id).all()
-            return redirect(url_for('dashboard.home', userid=user.id))
+            return redirect(url_for('dashboard.verification', userid=user.id))
         else:
             return render_template('dashboard/getin.html', message="ERROR")
     return render_template('dashboard/getin.html')
@@ -66,7 +69,23 @@ def getin():
 
 @dashboard.route('/verification')
 def verification():
+    userid=session['userid']
+    user = Users.query.filter_by(id=userid).first()
+    if user.isverified:
+        return redirect(url_for('dashboard.home'))
     return render_template('dashboard/verification.html')
+
+
+@dashboard.route('/investment')
+def investment():
+    userid=session['userid']
+    user = Users.query.filter_by(id=userid).first()
+    return render_template('dashboard/investment.html', user=user)
+
+
+
+
+
 
 # logout route
 @dashboard.route('/logout')
