@@ -15,7 +15,8 @@ class Users(db.Model):
     # referredby = db.relationship('Users', backref=db.backref('referedby', lazy='dynamic'))
     # is verified column will be boolean field
     # isverified = db.Column(db.Boolean, default=False)
-
+    # REFRRALS COUNT
+    #refcount = db.Column(db.Integer, default=0)
 
 
 # staff model
