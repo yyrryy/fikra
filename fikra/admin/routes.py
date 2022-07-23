@@ -8,9 +8,11 @@ session,
 url_for,
 jsonify
 )
-from fikra.models import Users
+
+
+from fikra.models import Users, Posts
 from fikra.admin.funcs import admin_login
-from fikra import bcrypt
+from fikra import bcrypt, db
 #Add prefix
 admin = Blueprint('admin', __name__, url_prefix='/admin')
     
@@ -42,6 +44,14 @@ def login():
     return jsonify({'success': False, 'message': 'Invalid username'})
 
 
-
+# create a post
+@admin.route('/createpost', methods=['POST'])
+def createpost():
+    title=request.form['title']
+    content=request.form['content']
+    userid=session['userid']
+    db.session.add(Posts(title=title, content=content, userid=userid))
+    db.session.commit()
+    return jsonify({'success': True, 'message': 'Post created'})
 
 

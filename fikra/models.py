@@ -10,11 +10,16 @@ class Users(db.Model):
     project = db.Column(db.String(500))
     rib = db.Column(db.String(500))
     referalcode= db.Column(db.String(500))
+    # phone number is a string field length is 500
+    phone = db.Column(db.String(500))
+    # address is a string field length is 500
+    address = db.Column(db.String(500))
+
     # referred by column will be one to many relationship witl users table
     referedby = db.Column(db.Integer, nullable=True)
     # referredby = db.relationship('Users', backref=db.backref('referedby', lazy='dynamic'))
     # is verified column will be boolean field
-    # isverified = db.Column(db.Boolean, default=False)
+    isverified = db.Column(db.Boolean, default=False)
 
 
 
@@ -27,3 +32,11 @@ class Staff(db.Model):
     role = db.Column(db.String(500))
 
 
+# posts model
+class Posts(db.Model):
+    id=db.Column(db.Integer, primary_key=True)
+    title=db.Column(db.String(500))
+    # content is a text field
+    content=db.Column(db.Text)
+    date_posted=db.Column(db.DateTime.utcnow)
+    

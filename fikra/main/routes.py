@@ -10,6 +10,6 @@ main = Blueprint('main', __name__)
 def home():
     return render_template('main/home.html')
 
-@main.route('/getin')
-def getin():
-    return render_template('main/getin.html')
+@main.route('/about')
+def about():
+    return render_template('main/about.html')
