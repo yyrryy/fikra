@@ -8,3 +8,4 @@ __pycache__
 ignoredfiles
 getc.py
 .env
+migrations
