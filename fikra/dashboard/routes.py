@@ -16,16 +16,17 @@ from random import choice
 dashboard = Blueprint('dashboard', __name__, url_prefix='/dashboard')
 
 @dashboard.route('/')
-@user_login
+# @user_login
 def home():
-    userid=session['userid']
+    return render_template('dashboard/home.html')
+    # userid=session['userid'] or None
 
-    user = Users.query.filter_by(id=userid).first()
+    # user = Users.query.filter_by(id=userid).first()
     # check if user is verified
-    if user.isverified == True:
-        referals=Users.query.filter_by(referedby=userid).all()
-        return render_template('dashboard/home.html', user=user, referrals=referals)
-    return redirect(url_for('dashboard.verification'))
+    # if user.isverified == True:
+    #     referals=Users.query.filter_by(referedby=userid).all()
+    #     return render_template('dashboard/home.html', user=user, referrals=referals)
+    # return redirect(url_for('dashboard.verification'))
 
 @dashboard.route('/newuser')
 def newuser():

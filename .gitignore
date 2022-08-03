@@ -9,3 +9,5 @@ ignoredfiles
 getc.py
 .env
 migrations
+getassets.py
+getassets.pyc

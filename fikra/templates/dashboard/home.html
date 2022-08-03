@@ -1,61 +1,204 @@
-<!-- dashboard home page -->
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-    <title>Fikra - dashboard</title>
-    <!-- Bootstrap core CSS -->
-    <!-- Custom styles for this template -->
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- bootstrap from cdn -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-</head>
-<body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Fikra - dashboard</h1>
+{% extends 'dashbase.html' %}
+
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+<section class="wrapper bg-gradient-primary">
+    <div class="container pt-10 pt-md-14 pb-8">
+        <div class="row gx-lg-8 gx-xl-12 gy-10 ">
+            <h1 class="display-1">Good day.</h1>
+            <p>
+                username
+            </p>
+            <div class="row">
+
+            </div>
         </div>
+        <!-- /.row -->
     </div>
-    <p>
-        {{user.username}}
-    </p>
-    <p>
-        {{user.email}}
-    </p>
-    <p>
-        {{user.project}}
-    </p>
-    <p>
-        {{user.rib}}
-    </p>
-    {% for i in referals %}
-        <p>
-            {{i.username}}
-        </p>
-    {% endfor %}
-    
-    <p>
-        {{user.referalcode}}
-    </p>
+    <!-- /.container -->
+</section>
+<section class="wrapper bg-light">
+    <div class="container py-14 py-md-16">
+        <div class="row text-center">
+            <div class="col-xl-10 mx-auto">
+                <h2 class="fs-15 text-uppercase text-muted mb-3">Job Positions</h2>
+                <h3 class="display-4 mb-10 px-xxl-15">We’re always searching for amazing people to join our team. Take a
+                    look at our current openings.</h3>
+            </div>
+            <!-- /column -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-xl-10 mx-auto">
+                <form class="filter-form mb-10">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="form-select-wrapper">
+                                <select class="form-select" aria-label="">
+                                    <option selected>Position</option>
+                                    <option value="position1">Business</option>
+                                    <option value="position2">Design</option>
+                                    <option value="position3">Development</option>
+                                    <option value="position4">Engineering</option>
+                                    <option value="position5">Finance</option>
+                                    <option value="position6">Marketing</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="form-select-wrapper">
+                                <select class="form-select" aria-label="">
+                                    <option selected>Type</option>
+                                    <option value="type1">Full-time</option>
+                                    <option value="type3">Part-time</option>
+                                    <option value="type4">Remote</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="form-select-wrapper">
+                                <select class="form-select" aria-label="">
+                                    <option selected>Location</option>
+                                    <option value="location1">Chicago, US</option>
+                                    <option value="location3">Michigan, US</option>
+                                    <option value="location2">New York, US</option>
+                                    <option value="location4">Los Angles, US</option>
+                                    <option value="location5">Moscow, Russia</option>
+                                    <option value="location6">Sydney, Australia</option>
+                                    <option value="location7">Birmingham, UK</option>
+                                    <option value="location8">Manchester, UK</option>
+                                    <option value="location9">Beijing, China</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="job-list mb-10">
+                    <h3 class="mb-4">Design</h3>
+                    <a href="#" class="card mb-4 lift">
+                        <div class="card-body p-5">
+                            <span class="row justify-content-between align-items-center">
+                                <span class="col-md-5 mb-2 mb-md-0 d-flex align-items-center text-body">
+                                    <span class="avatar bg-red text-white w-9 h-9 fs-17 me-3">GD</span> Senior Graphic
+                                    Designer </span>
+                                <span class="col-5 col-md-3 text-body d-flex align-items-center">
+                                    <i class="uil uil-clock me-1"></i> Full time </span>
+                                <span class="col-7 col-md-4 col-lg-3 text-body d-flex align-items-center">
+                                    <i class="uil uil-location-arrow me-1"></i> San Francisco, US </span>
+                                <span class="d-none d-lg-block col-1 text-center text-body">
+                                    <i class="uil uil-angle-right-b"></i>
+                                </span>
+                            </span>
+                        </div>
+                        <!-- /.card-body -->
+                    </a>
+                    <!-- /.card -->
+                    <a href="#" class="card mb-4 lift">
+                        <div class="card-body p-5">
+                            <span class="row justify-content-between align-items-center">
+                                <span class="col-md-5 mb-2 mb-md-0 d-flex align-items-center text-body">
+                                    <span class="avatar bg-green text-white w-9 h-9 fs-17 me-3">UX</span> UI/UX Designer
+                                </span>
+                                <span class="col-5 col-md-3 text-body d-flex align-items-center">
+                                    <i class="uil uil-clock me-1"></i> Remote </span>
+                                <span class="col-7 col-md-4 col-lg-3 text-body d-flex align-items-center">
+                                    <i class="uil uil-location-arrow me-1"></i> Anywhere </span>
+                                <span class="d-none d-lg-block col-1 text-center text-body">
+                                    <i class="uil uil-angle-right-b"></i>
+                                </span>
+                            </span>
+                        </div>
+                        <!-- /.card-body -->
+                    </a>
+                    <!-- /.card -->
+                    <a href="#" class="card mb-4 lift">
+                        <div class="card-body p-5">
+                            <span class="row justify-content-between align-items-center">
+                                <span class="col-md-5 mb-2 mb-md-0 d-flex align-items-center text-body">
+                                    <span class="avatar bg-yellow text-white w-9 h-9 fs-17 me-3">AN</span> Multimedia
+                                    Artist &amp; Animator </span>
+                                <span class="col-5 col-md-3 text-body d-flex align-items-center">
+                                    <i class="uil uil-clock me-1"></i> Full time </span>
+                                <span class="col-7 col-md-4 col-lg-3 text-body d-flex align-items-center">
+                                    <i class="uil uil-location-arrow me-1"></i> Birmingham, UK </span>
+                                <span class="d-none d-lg-block col-1 text-center text-body">
+                                    <i class="uil uil-angle-right-b"></i>
+                                </span>
+                            </span>
+                        </div>
+                        <!-- /.card-body -->
+                    </a>
+                    <!-- /.card -->
+                </div>
+                <div class="job-list">
+                    <h3 class="mb-4">Development</h3>
+                    <a href="#" class="card mb-4 lift">
+                        <div class="card-body p-5">
+                            <span class="row justify-content-between align-items-center">
+                                <span class="col-md-5 mb-2 mb-md-0 d-flex align-items-center text-body">
+                                    <span class="avatar bg-purple text-white w-9 h-9 fs-17 me-3">FE</span> Front End
+                                    Developer </span>
+                                <span class="col-5 col-md-3 text-body d-flex align-items-center">
+                                    <i class="uil uil-clock me-1"></i> Part time </span>
+                                <span class="col-7 col-md-4 col-lg-3 text-body d-flex align-items-center">
+                                    <i class="uil uil-location-arrow me-1"></i> Sydney, AU </span>
+                                <span class="d-none d-lg-block col-1 text-center text-body">
+                                    <i class="uil uil-angle-right-b"></i>
+                                </span>
+                            </span>
+                        </div>
+                        <!-- /.card-body -->
+                    </a>
+                    <!-- /.card -->
+                    <a href="#" class="card mb-4 lift">
+                        <div class="card-body p-5">
+                            <span class="row justify-content-between align-items-center">
+                                <span class="col-md-5 mb-2 mb-md-0 d-flex align-items-center text-body">
+                                    <span class="avatar bg-orange text-white w-9 h-9 fs-17 me-3">MD</span> Mobile
+                                    Developer </span>
+                                <span class="col-5 col-md-3 text-body d-flex align-items-center">
+                                    <i class="uil uil-clock me-1"></i> Full-time </span>
+                                <span class="col-7 col-md-4 col-lg-3 text-body d-flex align-items-center">
+                                    <i class="uil uil-location-arrow me-1"></i> San Francisco, US </span>
+                                <span class="d-none d-lg-block col-1 text-center text-body">
+                                    <i class="uil uil-angle-right-b"></i>
+                                </span>
+                            </span>
+                        </div>
+                        <!-- /.card-body -->
+                    </a>
+                    <!-- /.card -->
+                    <a href="#" class="card mb-4 lift">
+                        <div class="card-body p-5">
+                            <span class="row justify-content-between align-items-center">
+                                <span class="col-md-5 mb-2 mb-md-0 d-flex align-items-center text-body">
+                                    <span class="avatar bg-pink text-white w-9 h-9 fs-17 me-3">NT</span> .NET Developer
+                                </span>
+                                <span class="col-5 col-md-3 text-body d-flex align-items-center">
+                                    <i class="uil uil-clock me-1"></i> Full time </span>
+                                <span class="col-7 col-md-4 col-lg-3 text-body d-flex align-items-center">
+                                    <i class="uil uil-location-arrow me-1"></i> Manchester, UK </span>
+                                <span class="d-none d-lg-block col-1 text-center text-body">
+                                    <i class="uil uil-angle-right-b"></i>
+                                </span>
+                            </span>
+                        </div>
+                        <!-- /.card-body -->
+                    </a>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /column -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- /section -->
+{% endblock %}
 
-    <p>
-        <!-- logout -->
-        <a href="{{url_for('dashboard.logout')}}">Logout</a>
-    </p>
-</div>
-<!-- /.container -->
-
-</body>
-</html>
+{% block js %}
+{% endblock %}
