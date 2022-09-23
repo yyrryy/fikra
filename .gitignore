@@ -11,3 +11,4 @@ getc.py
 migrations
 getassets.py
 getassets.pyc
+app.db

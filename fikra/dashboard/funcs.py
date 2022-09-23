@@ -31,7 +31,7 @@ def user_login(views):
         if session.get('username') is not None:
             return views(*args, **kwargs)
         else:
-            return redirect(url_for('dashboard.getin'))
+            return redirect(url_for('dashboard.login'))
     return wrapper
 
 

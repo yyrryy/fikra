@@ -16,7 +16,7 @@ from random import choice
 dashboard = Blueprint('dashboard', __name__, url_prefix='/dashboard')
 
 @dashboard.route('/')
-# @user_login
+@user_login
 def home():
     return render_template('dashboard/home.html')
     # userid=session['userid'] or None
@@ -34,12 +34,14 @@ def newuser():
 
 @dashboard.route('/signup/ref=<refcode>', methods=['POST', 'GET'])
 def signup(refcode):
+    # check if refcode exists in db
+    who_refered=Users.query.filter_by(referalcode=refcode).first()
+    # if not who_refered:
     if request.method=='POST':
         fullname=request.form['fullname']
         username = request.form['username']
         email = request.form['email']
         password = bcrypt.generate_password_hash(request.form['password'])
-        who_refered=Users.query.filter_by(referalcode=refcode).first()
         project=request.form['project']
         rib=request.form['rib']
         characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'
@@ -50,6 +52,7 @@ def signup(refcode):
         db.session.commit()
         return redirect(url_for('dashboard.verification'))
     return render_template('dashboard/getin.html', refcode=refcode)
+    # return 'refcode not found'
 
 @dashboard.route('/getin', methods=['POST', 'GET'])
 def getin():
@@ -93,3 +96,20 @@ def investment():
 def logout():
     session.clear()
     return redirect(url_for('dashboard.getin'))
+
+
+@dashboard.route('/login', methods=['POST', 'GET'])
+def login():
+    if request.method == 'POST':
+        username=request.form['username']
+        password=request.form['password']
+        user=Users.query.filter_by(username=username).first()
+        if user and bcrypt.check_password_hash(user.password, password):
+            print('user found')
+            session.clear()
+            session['username'] = user.username
+            session['userid'] = user.id
+            return redirect(url_for('dashboard.home', userid=user.id))
+        else:
+            return render_template('dashboard/login.html', message="ERROR")
+    return render_template('dashboard/login.html')

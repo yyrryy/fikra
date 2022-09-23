@@ -1,0 +1,42 @@
+{% extends 'dashbase.html' %}
+
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="mt-5 fade show border-1" id="" tabindex="-1" aria-modal="true" role="dialog" style="display: block; padding-left: 0px;">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content text-center">
+        <div class="modal-body">
+          <h2 class="mb-3 text-start">Welcome Back</h2>
+          <form class="text-start mb-3">
+            <div class="form-floating mb-4">
+              <input type="email" class="form-control" placeholder="Email" id="loginEmail">
+              <label for="loginEmail">Email</label>
+            </div>
+            <div class="form-floating password-field mb-4">
+              <input type="password" class="form-control" placeholder="Password" id="loginPassword">
+              <span class="password-toggle"><i class="uil uil-eye"></i></span>
+              <label for="loginPassword">Password</label>
+            </div>
+            <a class="btn btn-primary rounded-pill btn-login w-100 mb-2">Sign In</a>
+          </form>
+          <!-- /form -->
+          
+          <!--/.social -->
+        </div>
+        <!--/.modal-content -->
+      </div>
+      <!--/.modal-body -->
+    </div>
+    <!--/.modal-dialog -->
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

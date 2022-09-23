@@ -6,15 +6,15 @@ class Users(db.Model):
     fullname = db.Column(db.String(500))
     username= db.Column(db.String(500))
     email = db.Column(db.String(500))
+    phone = db.Column(db.String(500))
     password = db.Column(db.String(500))
     # project colum is a string flield length is 500
-    project = db.Column(db.String(500))
-    rib = db.Column(db.String(500))
+    project = db.Column(db.String(500), nullable=True)
+    rib = db.Column(db.String(500), nullable=True)
     referalcode= db.Column(db.String(500))
     # phone number is a string field length is 500
-    phone = db.Column(db.String(500))
     # address is a string field length is 500
-    address = db.Column(db.String(500))
+    address = db.Column(db.String(500), nullable=True)
 
     # referred by column will be one to many relationship witl users table
     referedby = db.Column(db.Integer, nullable=True)
@@ -24,6 +24,8 @@ class Users(db.Model):
     # referral count column will be integer field
     referralcount = db.Column(db.Integer, default=0)
 
+
+ 
 
 # staff model
 class Staff(db.Model):
